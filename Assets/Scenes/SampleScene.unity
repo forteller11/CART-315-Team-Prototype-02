@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 1155125301}
   - component: {fileID: 1155125298}
   - component: {fileID: 1155125299}
+  - component: {fileID: 1155125300}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -294,6 +295,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1155125300
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155125297}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.07319006, y: 0.07882011}
+  m_Size: {x: 0.98359877, y: 2.14338}
+  m_Direction: 0
 --- !u!50 &1155125301
 Rigidbody2D:
   serializedVersion: 4
@@ -314,7 +331,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1155125302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +359,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandOpen: {fileID: 21300000, guid: ebc9a391962dda64f9bb984da5dbf335, type: 3}
   HandClosed: {fileID: 21300000, guid: 27307e8c9b6ebf646b9d7d2173d1f4e2, type: 3}
+  ColliderRadius: 0.4
+  ColliderOffset: {x: -0.07, y: -0.2}
+  ForceReleaseMultiplier: 70
+  DeltaPosLerpAmount: 0.202
 --- !u!4 &1155125304
 Transform:
   m_ObjectHideFlags: 0
@@ -366,9 +387,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1922270825}
   - component: {fileID: 1922270824}
-  - component: {fileID: 1922270823}
   - component: {fileID: 1922270827}
   - component: {fileID: 1922270826}
+  - component: {fileID: 1922270823}
   m_Layer: 8
   m_Name: Food
   m_TagString: Untagged
@@ -383,7 +404,7 @@ FixedJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922270822}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
@@ -409,7 +430,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
