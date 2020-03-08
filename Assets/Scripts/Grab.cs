@@ -27,7 +27,7 @@ public class Grab : MonoBehaviour
     }
 
     private bool _grabbingLastFrame;
-    private Vector2 _positionLastFrame;
+    private Vector2 _positionLastPhysicsFrame;
     private Vector2 _deltaPos;
     
     private ControlsMain _input;
@@ -48,15 +48,20 @@ public class Grab : MonoBehaviour
     {
         bool grabbingThisFrame = (_input.Hand.Grab.ReadValue<float>() > 0.5f);
 
-        var lastFramesDeltaPos = transform.position.ToVector2XY() - _positionLastFrame;
-        _deltaPos = Vector2.Lerp(_deltaPos, lastFramesDeltaPos, DeltaPosLerpAmount);
-        
         if (grabbingThisFrame != _grabbingLastFrame)
             HandleGrabChange(grabbingThisFrame);
         
         _grabbingLastFrame = grabbingThisFrame;
-        _positionLastFrame = transform.position.ToVector2XY();
+        _positionLastPhysicsFrame = transform.position.ToVector2XY();
     }
+
+    private void FixedUpdate()
+    {
+        var positionDeltaBetweenFrames = transform.position.ToVector2XY() - _positionLastPhysicsFrame;
+        _deltaPos = Vector2.Lerp(_deltaPos, positionDeltaBetweenFrames, DeltaPosLerpAmount);
+        _positionLastPhysicsFrame = transform.position.ToVector2XY();
+    }
+
     void HandleGrabChange(bool isGrabbing)
     {
         if (isGrabbing)
@@ -86,7 +91,8 @@ public class Grab : MonoBehaviour
             {
                 _foodBeingGrabbed.enabled = false;
                 _foodBeingGrabbed.connectedBody = null;
-                _foodBeingGrabbed.attachedRigidbody.velocity = _deltaPos * ForceReleaseMultiplier;
+                var toMove = _deltaPos / Time.deltaTime; //convert from distance to dist/persec
+                _foodBeingGrabbed.attachedRigidbody.velocity =toMove;
             }
  
         }
@@ -95,7 +101,7 @@ public class Grab : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(ColliderPosition, ColliderRadius);
-        Gizmos.DrawLine(transform.position, transform.position.ToVector2XY() + _deltaPos*ForceReleaseMultiplier);
+        Gizmos.DrawLine(transform.position, transform.position.ToVector2XY() + (_deltaPos / Time.deltaTime)/40f);
     }
 
     void OnEnable() => _input.Enable();
