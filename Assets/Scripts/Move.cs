@@ -19,6 +19,8 @@ public class Move : MonoBehaviour
         _input = new ControlsMain();
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _main = Camera.main;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void OnEnable() => _input.Enable();
