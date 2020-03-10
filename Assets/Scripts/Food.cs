@@ -17,7 +17,10 @@ public class Food : MonoBehaviour
       Lettuce,
       Steak,
       Egg,
-      Bread
+      Bread,
+      Milk,
+      Pepper,
+      Cheese
    };
 
    [SerializeField]
