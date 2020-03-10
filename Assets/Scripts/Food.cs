@@ -14,10 +14,11 @@ public class Food : MonoBehaviour
       Banana,
       Lettuce,
       Steak,
-      Egg
+      Egg,
+      Bread
    };
 
    [SerializeField]
    [Header("Type of Food")]
-   private FoodType Type;
+   public FoodType Type;
 }

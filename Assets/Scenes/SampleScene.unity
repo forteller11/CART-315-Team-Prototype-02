@@ -361,8 +361,7 @@ MonoBehaviour:
   HandClosed: {fileID: 21300000, guid: 27307e8c9b6ebf646b9d7d2173d1f4e2, type: 3}
   ColliderRadius: 0.4
   ColliderOffset: {x: -0.07, y: -0.2}
-  ForceReleaseMultiplier: 70
-  DeltaPosLerpAmount: 0.202
+  DeltaPosLerpAmount: 0.456
 --- !u!4 &1155125304
 Transform:
   m_ObjectHideFlags: 0
@@ -458,7 +457,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 14
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

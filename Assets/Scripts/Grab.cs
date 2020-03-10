@@ -12,8 +12,8 @@ public class Grab : MonoBehaviour
     [SerializeField] private Sprite HandClosed;
     [SerializeField] private float ColliderRadius = 2f;
     [SerializeField] private Vector2 ColliderOffset;
-    [SerializeField] private float ForceReleaseMultiplier = 1f;
     [Range(0f,1f)]
+    [Tooltip("0 means throw force doesn't change, 1 means it changes instantly to match speed of hand'")]
     [SerializeField] private float DeltaPosLerpAmount = 0.5f;
     private Vector2 ColliderPosition
     {
@@ -52,14 +52,25 @@ public class Grab : MonoBehaviour
             HandleGrabChange(grabbingThisFrame);
         
         _grabbingLastFrame = grabbingThisFrame;
-        _positionLastPhysicsFrame = transform.position.ToVector2XY();
     }
 
     private void FixedUpdate()
     {
-        var positionDeltaBetweenFrames = transform.position.ToVector2XY() - _positionLastPhysicsFrame;
-        _deltaPos = Vector2.Lerp(_deltaPos, positionDeltaBetweenFrames, DeltaPosLerpAmount);
-        _positionLastPhysicsFrame = transform.position.ToVector2XY();
+        var positionDeltaBetweenFrames = _rigidBody2D.position - _positionLastPhysicsFrame;
+        var lastPosMag = _positionLastPhysicsFrame.magnitude;
+        var thisPosMag = positionDeltaBetweenFrames.magnitude;
+
+        if (thisPosMag >= lastPosMag) //only lerp if mag is getting smaller
+        {
+            _deltaPos = positionDeltaBetweenFrames;
+        }
+        else
+        {
+            _deltaPos = Vector2.Lerp(_deltaPos, positionDeltaBetweenFrames, DeltaPosLerpAmount);
+            _positionLastPhysicsFrame = _rigidBody2D.position;
+        }
+        
+        _positionLastPhysicsFrame = _rigidBody2D.position;
     }
 
     void HandleGrabChange(bool isGrabbing)
@@ -92,7 +103,7 @@ public class Grab : MonoBehaviour
                 _foodBeingGrabbed.enabled = false;
                 _foodBeingGrabbed.connectedBody = null;
                 var toMove = _deltaPos / Time.deltaTime; //convert from distance to dist/persec
-                _foodBeingGrabbed.attachedRigidbody.velocity =toMove;
+                _foodBeingGrabbed.attachedRigidbody.velocity = toMove;
             }
  
         }
@@ -101,7 +112,7 @@ public class Grab : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(ColliderPosition, ColliderRadius);
-        Gizmos.DrawLine(transform.position, transform.position.ToVector2XY() + (_deltaPos / Time.deltaTime)/40f);
+        Gizmos.DrawLine(transform.position, transform.position.ToVector2XY() + (_deltaPos / Time.deltaTime));
     }
 
     void OnEnable() => _input.Enable();
