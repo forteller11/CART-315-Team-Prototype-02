@@ -14,7 +14,7 @@ public class RandomTint : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         int initSeed = (System.DateTime.Now.Millisecond);
-        Debug.Log(initSeed);
+       // Debug.Log(initSeed);
         Random.InitState(initSeed);
         RandomizeTint();
     }
@@ -25,6 +25,6 @@ public class RandomTint : MonoBehaviour
         int tintIndex = Mathf.RoundToInt(Random.Range(0f, maxRange));
 
         _spriteRenderer.color = _tints[tintIndex];
-        Debug.Log(maxRange);
+       // Debug.Log(maxRange);
     }
 }
