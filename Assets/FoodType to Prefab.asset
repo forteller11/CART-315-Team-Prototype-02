@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13a21324605d4a70826b70489cfc2cff, type: 3}
-  m_Name: FoodType to Sprite
+  m_Name: FoodType to Prefab
   m_EditorClassIdentifier: 
   FoodPrefabs:
   - {fileID: 0}
