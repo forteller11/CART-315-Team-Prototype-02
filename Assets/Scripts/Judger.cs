@@ -52,7 +52,7 @@ public class Judger : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position.ToVector2XY() + ColliderOffset, ColliderSize);
+        Gizmos.DrawWireCube(transform.position.ToVector2XY() + ColliderOffset, ColliderSize * transform.localScale.x);
     }
 
     void JudgeFoods(List<Food> foods, out int creativityScore, out int tasteScore, out List<string> foodComboNames)
@@ -125,5 +125,5 @@ public class Judger : MonoBehaviour
             }
         }
     }
-
+    
 }

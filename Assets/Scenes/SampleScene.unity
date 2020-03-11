@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 497559557}
   - component: {fileID: 497559556}
   - component: {fileID: 497559555}
+  - component: {fileID: 497559558}
   m_Layer: 0
   m_Name: plate
   m_TagString: Untagged
@@ -424,6 +425,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497559558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497559554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980e0ebe2c051474896875ab80023ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColliderOffset: {x: 0, y: 2.58}
+  ColliderSize: {x: 11.74, y: 12.52}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoodTypeToPrefab: {fileID: 11400000, guid: 8f5f258b77cfc884da2bd11d21d44221, type: 2}
   SecondsBetweenSpawn: 0.5
-  AmountToSpawn: 30
+  SecondsToPlaceOnPlateAfterLastSpawn: 2
+  AmountToSpawn: 1
+  Judge: {fileID: 497559558}
+  ScoreManager: {fileID: 94041207}
 --- !u!1 &1612480977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,12 +1922,12 @@ PrefabInstance:
     - target: {fileID: 6905094578748560307, guid: 62ece67e3c7d79c428d10824933c59dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1111684
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 6905094578748560307, guid: 62ece67e3c7d79c428d10824933c59dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.4352722
+      value: -2.67
       objectReference: {fileID: 0}
     - target: {fileID: 6905094578748560307, guid: 62ece67e3c7d79c428d10824933c59dd,
         type: 3}
@@ -2116,12 +2134,12 @@ PrefabInstance:
     - target: {fileID: 8524253777889684005, guid: 54617be98372d364fb1bb72338d40a97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.97
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 8524253777889684005, guid: 54617be98372d364fb1bb72338d40a97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.64
+      value: -2.41
       objectReference: {fileID: 0}
     - target: {fileID: 8524253777889684005, guid: 54617be98372d364fb1bb72338d40a97,
         type: 3}
@@ -2343,12 +2361,12 @@ PrefabInstance:
     - target: {fileID: 8329837855827958919, guid: 9819420e049839b47ac185776c5449fd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.939
+      value: 4.21
       objectReference: {fileID: 0}
     - target: {fileID: 8329837855827958919, guid: 9819420e049839b47ac185776c5449fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.546
+      value: -1.27
       objectReference: {fileID: 0}
     - target: {fileID: 8329837855827958919, guid: 9819420e049839b47ac185776c5449fd,
         type: 3}
