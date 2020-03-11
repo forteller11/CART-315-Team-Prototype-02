@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class ShowHideScore : MonoBehaviour
 {
-    public bool timeToShowScore = false;
+    [HideInInspector] public bool timeToShowScore = false;
 
     private GameObject score;
-    public int scoreCreativity;
-    public int scoreTaste;
+    [HideInInspector] public int scoreCreativity;
+    [HideInInspector] public int scoreTaste;
     private Text scoreLabelC;
     private Text scoreLabelT;
+    [HideInInspector]  public List<string> ComboNames; //use this to display names of food combos (if there are any)
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,12 @@ public class ShowHideScore : MonoBehaviour
         {
             scoreLabelC.text = scoreCreativity.ToString();
             scoreLabelT.text = scoreTaste.ToString();
+            //score label x
             score.SetActive(true);
+            foreach (var combo in ComboNames)
+            {
+                //socre label x.text += combo
+            }
         } else
         {
             score.SetActive(false);

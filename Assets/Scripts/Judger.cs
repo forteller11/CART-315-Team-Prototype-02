@@ -25,6 +25,7 @@ public class Judger : MonoBehaviour
         showHideScore.scoreCreativity = creativityScore;
         showHideScore.scoreTaste = tasteScore;
         showHideScore.timeToShowScore = true;
+        showHideScore.ComboNames = foodCombinationNames;
         foreach(var combo in foodCombinationNames)
             Debug.Log(combo);
 
