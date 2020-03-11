@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BehindFood
+    uniqueID: 305952819
+    locked: 0
+  - name: Food
+    uniqueID: 2628664101
+    locked: 0
+  - name: FrontOfFood
+    uniqueID: 2085390273
+    locked: 0

@@ -12,6 +12,10 @@ public class Grab : MonoBehaviour
     [SerializeField] private Sprite HandClosed;
     [SerializeField] private float ColliderRadius = 2f;
     [SerializeField] private Vector2 ColliderOffset;
+    [Range(.01f,5)]
+    [SerializeField] private float ReleaseForceMultiplier = 1f;
+    [Range(1f,100f)]
+    [SerializeField] private float MaxReleaseVelocity = 20f;
     [Range(0f,1f)]
     [Tooltip("0 means throw force doesn't change, 1 means it changes instantly to match speed of hand'")]
     [SerializeField] private float DeltaPosLerpAmount = 0.5f;
@@ -102,8 +106,10 @@ public class Grab : MonoBehaviour
             {
                 _foodBeingGrabbed.enabled = false;
                 _foodBeingGrabbed.connectedBody = null;
-                var toMove = _deltaPos / Time.deltaTime; //convert from distance to dist/persec
+                var toMove = (_deltaPos / Time.deltaTime) * ReleaseForceMultiplier; //convert from distance to dist/persec
+                toMove = Vector2.ClampMagnitude(toMove, MaxReleaseVelocity);
                 _foodBeingGrabbed.attachedRigidbody.velocity = toMove;
+                
             }
  
         }
@@ -112,7 +118,9 @@ public class Grab : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(ColliderPosition, ColliderRadius);
-        Gizmos.DrawLine(transform.position, transform.position.ToVector2XY() + (_deltaPos / Time.deltaTime));
+        var toMove = (_deltaPos / Time.deltaTime) * ReleaseForceMultiplier;
+            toMove = Vector2.ClampMagnitude(toMove, MaxReleaseVelocity);
+        Gizmos.DrawLine(transform.position, transform.position.ToVector2XY() + toMove);
     }
 
     void OnEnable() => _input.Enable();
