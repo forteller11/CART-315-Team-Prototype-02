@@ -78,10 +78,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1771509089479152707, guid: d9306a6500ab2e84f9f1f4496e84336f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771509089479152707, guid: d9306a6500ab2e84f9f1f4496e84336f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 1771509089479152733, guid: d9306a6500ab2e84f9f1f4496e84336f,
         type: 3}
       propertyPath: m_Name
-      value: Tomato
+      value: Tomato Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1771509089479152735, guid: d9306a6500ab2e84f9f1f4496e84336f,
         type: 3}

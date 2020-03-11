@@ -27,7 +27,10 @@ public class FoodSpawner : MonoBehaviour
 
         for (int i = 0; i < AmountToSpawn; i++)
         {
-            int randomPrefabIndex = (int) Random.Range(0, FoodTypeToPrefab.FoodPrefabs.Count-1 - Single.MinValue);
+            var maxValue = FoodTypeToPrefab.FoodPrefabs.Count - 1;
+            int randomPrefabIndex = (int) Random.Range(0f, maxValue);
+            if (randomPrefabIndex == FoodTypeToPrefab.FoodPrefabs.Count)
+                randomPrefabIndex = FoodTypeToPrefab.FoodPrefabs.Count - 1;
             
             var randomRotation = Quaternion.Lerp(
                 Quaternion.identity,

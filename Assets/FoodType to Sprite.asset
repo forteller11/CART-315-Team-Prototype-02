@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a21324605d4a70826b70489cfc2cff, type: 3}
+  m_Name: FoodType to Sprite
+  m_EditorClassIdentifier: 
+  FoodPrefabs:
+  - {fileID: 6905094578748560301, guid: 62ece67e3c7d79c428d10824933c59dd, type: 3}
+  - {fileID: 2556828134316232241, guid: e5abea7cdc5df79459891ea15fd9fa1e, type: 3}
+  - {fileID: 8329837855827958937, guid: 9819420e049839b47ac185776c5449fd, type: 3}
+  - {fileID: 1431436135817963697, guid: 52bfe0385b1d59849a0937cb8aa7b332, type: 3}
+  - {fileID: 9079915168693576968, guid: d4d3fb82832f22e48a075ca3a153df5c, type: 3}
+  - {fileID: 5377320019565137640, guid: 7c5a5297f9380f941ab439880f9d7118, type: 3}
+  - {fileID: 7547252994834512676, guid: 901cb5b79b7a3774986b70f9f57a9b01, type: 3}
+  - {fileID: 8015639773056838002, guid: 8b9db7cebee95c64f896db983f61ff27, type: 3}
+  - {fileID: 8524253777889684027, guid: 54617be98372d364fb1bb72338d40a97, type: 3}
+  - {fileID: 3099184294669466330, guid: 664dee01042705d4992f1f46ea4d3686, type: 3}
+  - {fileID: 3885408807875354196, guid: 605acd422ee7d5b44ba95dcb461feb78, type: 3}
+  - {fileID: 1981375258140072420, guid: e3d47c65914d6844aa56d976cabb832f, type: 3}
