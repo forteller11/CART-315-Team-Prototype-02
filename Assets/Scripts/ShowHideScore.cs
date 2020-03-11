@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class showHideScore : MonoBehaviour
+public class ShowHideScore : MonoBehaviour
 {
-    public bool timeToShowScore;
+    public bool timeToShowScore = false;
 
     private GameObject score;
     public int scoreCreativity;
@@ -17,17 +17,13 @@ public class showHideScore : MonoBehaviour
     void Start()
     {
     score = GameObject.Find("Score UI");
-
-    scoreCreativity = 0;
-    scoreTaste = 0;
+    
     scoreLabelC = GameObject.Find("Score Number Creativity").GetComponent<Text>();
     scoreLabelT = GameObject.Find("Score Number Taste").GetComponent<Text>();
-
-    timeToShowScore = false;
-}
+    }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if(timeToShowScore == true)
         {

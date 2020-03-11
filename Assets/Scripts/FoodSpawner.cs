@@ -9,7 +9,10 @@ public class FoodSpawner : MonoBehaviour
 
     [SerializeField] private FoodTypeToPrefab FoodTypeToPrefab;
     [SerializeField] private float SecondsBetweenSpawn = 1f;
+    [SerializeField] private float SecondsToPlaceOnPlateAfterLastSpawn = 2f;
     [SerializeField] private int AmountToSpawn = 5;
+    [SerializeField] private Judger Judge;
+    [SerializeField] private ShowHideScore ScoreManager;
 
     private void Awake()
     {
@@ -51,6 +54,9 @@ public class FoodSpawner : MonoBehaviour
             
             yield return new WaitForSeconds(SecondsBetweenSpawn);
         }
+
+        yield return new WaitForSeconds(SecondsToPlaceOnPlateAfterLastSpawn);
+        Judge.Score(ScoreManager);
 
     }
 
